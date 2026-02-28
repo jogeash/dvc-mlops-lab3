@@ -1,0 +1,5 @@
+outs:
+- md5: e48f20398e95a06c9839c9522f4f19d8
+  size: 4165426
+  hash: md5
+  path: amazon_sales_dataset.csv
