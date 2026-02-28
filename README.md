@@ -11,8 +11,8 @@ dvc-mlops-lab3/
 ├── .dvc/                  # DVC configuration and cache
 │   └── config             # Remote storage configuration
 ├── data/
-│   ├── CC_GENERAL.csv.dvc # DVC tracking file for the dataset
-│   └── .gitignore         # Ensures raw data isn't tracked by Git
+│   ├── amazon_sales_dataset.csv.dvc  # DVC tracking file for the dataset
+│   └── .gitignore                    # Ensures raw data isn't tracked by Git
 ├── .dvcignore             # Files/directories for DVC to ignore
 ├── requirements.txt       # Python dependencies
 └── README.md
@@ -20,8 +20,8 @@ dvc-mlops-lab3/
 
 ## Dataset
 
-- **Source:** [Credit Card Dataset for Clustering](https://www.kaggle.com/datasets/arjunbhasin2013/ccdata) (Kaggle)
-- **File:** `CC_GENERAL.csv` — contains credit card holder behavior data with 18 features summarizing usage patterns for ~9,000 customers.
+- **Source:** [Amazon Sales Dataset](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset) (Kaggle)
+- **File:** `amazon_sales_dataset.csv` — contains Amazon product sales data including product details, pricing, ratings, and reviews.
 
 ## Tech Stack
 
@@ -84,8 +84,8 @@ dvc remote add -d myremote gs://<your-bucket-name>
 ### Track a Dataset
 
 ```bash
-dvc add data/CC_GENERAL.csv
-git add data/CC_GENERAL.csv.dvc data/.gitignore
+dvc add data/amazon_sales_dataset.csv
+git add data/amazon_sales_dataset.csv.dvc data/.gitignore
 git commit -m "Track dataset with DVC"
 ```
 
@@ -98,9 +98,9 @@ dvc push
 ### Update Dataset Version
 
 ```bash
-# Replace data/CC_GENERAL.csv with updated file
-dvc add data/CC_GENERAL.csv
-git add data/CC_GENERAL.csv.dvc
+# Replace data/amazon_sales_dataset.csv with updated file
+dvc add data/amazon_sales_dataset.csv
+git add data/amazon_sales_dataset.csv.dvc
 git commit -m "Updated dataset version"
 dvc push
 ```
@@ -108,7 +108,6 @@ dvc push
 ### Revert to a Previous Version
 
 ```bash
-git checkout <commit-hash> -- data/CC_GENERAL.csv.dvc
+git checkout <commit-hash> -- data/amazon_sales_dataset.csv.dvc
 dvc checkout
 ```
-
